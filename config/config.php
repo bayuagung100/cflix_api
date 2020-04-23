@@ -1,9 +1,9 @@
 <?php
 //localpc
 $servername = "localhost";
-$username = "root";
-$password = "";
-$database = "cflix";
+$username = "u611569177_cflix";
+$password = "n3wd3vc4mp";
+$database = "u611569177_cflix";
  
 // Create connection
 $mysqli = new mysqli($servername, $username, $password, $database);
