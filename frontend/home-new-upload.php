@@ -1,5 +1,6 @@
 <?php
 include "../config/config.php";
+header('Content-type: application/json; charset=UTF-8');
 
 $query = $mysqli->query("SELECT * FROM cflix_film ORDER BY id DESC");
 
@@ -18,7 +19,10 @@ while ($data = $query->fetch_array()) {
     $res['sutradara'] = $data['sutradara'];
     $res['rating'] = $data['rating'];
     $res['trailer'] = $data['trailer'];
+
+    // $query_video = $mysqli->query("SELECT * FROM cflix_video WHERE id='$data[video]' ");
     $res['video'] = $data['video'];
+
     $res['view'] = $data['view'];
 
     array_push($response['data'], $res);
