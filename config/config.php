@@ -9,7 +9,7 @@ $database = "u611569177_cflix";
 $mysqli = new mysqli($servername, $username, $password, $database);
 
 function convert_seo($kata) {
-    $simbol = array ('-','/','\\',',','.','#',':',';','\',','"','[',']','{','}',')','(','|','`','~','!','@','%','$','^','&','*','=','?','+');
+    $simbol = array ('/','\\',',','.','#',':',';','\',','"','[',']','{','}',')','(','|','`','~','!','@','%','$','^','&','*','=','?','+');
 	
 	//Menghilangkan simbol pada array $simbol
     $kata = str_replace($simbol, '', $kata); 
