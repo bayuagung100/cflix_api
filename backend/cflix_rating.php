@@ -4,7 +4,7 @@ if (isset($_POST['action'])) {
     
     if ($_POST['action']=="add") {
         if (isset($_POST['name'])) {
-            $name = ucwords($_POST['name']);
+            $name = $_POST['name'];
 
             $query = $mysqli->query("INSERT INTO cflix_rating 
                 (
@@ -41,7 +41,7 @@ if (isset($_POST['action'])) {
             $cek = $cek_query->num_rows;
             if ($cek>0) {
                 if (isset($_POST['name'])) {
-                    $name = ucwords($_POST['name']);
+                    $name = $_POST['name'];
 
                     $query = $mysqli->query("UPDATE cflix_rating SET
                         name = '$name'
