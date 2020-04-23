@@ -1,11 +1,13 @@
 <?php
 include "../config/config.php";
 header('Content-type: application/json; charset=UTF-8');
+header("Access-Control-Allow-Origin: *");
 
 $query = $mysqli->query("SELECT * FROM cflix_film ORDER BY id DESC");
 
 $response = array();
 $response['data'] = array();
+
 while ($data = $query->fetch_array()) {
     $res['id'] = $data['id'];
     $res['title'] = $data['title'];
@@ -20,9 +22,12 @@ while ($data = $query->fetch_array()) {
     $res['rating'] = $data['rating'];
     $res['trailer'] = $data['trailer'];
 
+    
+    // $res['video']  = array();
+    // $exvideo = explode(";", $$data['video']);
     // $query_video = $mysqli->query("SELECT * FROM cflix_video WHERE id='$data[video]' ");
-    $res['video'] = $data['video'];
 
+    $res['video'] = $data['video'];
     $res['view'] = $data['view'];
 
     array_push($response['data'], $res);
