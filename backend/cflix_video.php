@@ -1,5 +1,9 @@
 <?php
 include "../config/config.php";
+header('Access-Control-Allow-Headers: Access-Control-Allow-Origin, Content-Type');
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json, charset=utf-8');
+
 if (isset($_POST['action'])) {
     
     if ($_POST['action']=="add") {
@@ -102,7 +106,7 @@ if (isset($_POST['action'])) {
             echo json_encode($response);
         }
     } elseif ($_POST['action']=="show") {
-        $query = $mysqli->query("SELECT * FROM cflix_video ");
+        $query = $mysqli->query("SELECT * FROM cflix_video where id = '$_POST[id]' ");
 
         $response = array();
         $response['data'] = array();

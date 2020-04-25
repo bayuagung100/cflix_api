@@ -1,5 +1,6 @@
 <?php
 include "../config/config.php";
+header("Access-Control-Allow-Origin: *");
 if (isset($_POST['action'])) {
     
     if ($_POST['action']=="add") {
