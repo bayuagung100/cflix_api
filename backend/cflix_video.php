@@ -9,19 +9,19 @@ if (isset($_POST['action'])) {
     if ($_POST['action']=="add") {
         $label = $_POST['label'];
         $url_video = $_POST['url_video'];
-        $kualitas = $_POST['kualitas'];
+        $kualitas_video = $_POST['kualitas_video'];
         
         $query = $mysqli->query("INSERT INTO cflix_video 
             (
                 label,
                 url_video,
-                kualitas
+                kualitas_video
             )
             VALUES
             (
                 '$label',
                 '$url_video',
-                '$kualitas'
+                '$kualitas_video'
             )
         ");
         if ($query) {
@@ -44,12 +44,12 @@ if (isset($_POST['action'])) {
             if ($cek>0) {
                 $label = $_POST['label'];
                 $url_video = $_POST['url_video'];
-                $kualitas = $_POST['kualitas'];
+                $kualitas_video = $_POST['kualitas_video'];
 
                 $query = $mysqli->query("UPDATE cflix_video SET
                     label = '$label',
                     url_video = '$url_video',
-                    kualitas = '$kualitas'
+                    kualitas_video = '$kualitas_video'
 
                     WHERE id = '$_POST[id]'
                 ");
@@ -116,7 +116,7 @@ if (isset($_POST['action'])) {
             $res['id'] = $data['id'];
             $res['label'] = $data['label'];
             $res['url_video'] = $data['url_video'];
-            $res['kualitas'] = $data['kualitas'];
+            $res['kualitas_video'] = $data['kualitas_video'];
 
             array_push($response['data'], $res);
         }
