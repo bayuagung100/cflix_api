@@ -5,7 +5,7 @@
 // $password = "n3wd3vc4mp";
 // $database = "u611569177_cflix";
 
-//server
+//remoteserver
 $servername = "185.224.137.172";
 $username = "u611569177_cflix";
 $password = "n3wd3vc4mp";

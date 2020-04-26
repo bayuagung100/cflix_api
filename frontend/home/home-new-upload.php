@@ -1,5 +1,5 @@
 <?php
-include "../config/config.php";
+include "../../config/config.php";
 header('Content-type: application/json; charset=UTF-8');
 header("Access-Control-Allow-Origin: *");
 
