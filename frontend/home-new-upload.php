@@ -13,8 +13,11 @@ while ($data = $query->fetch_array()) {
     $res['title'] = $data['title'];
     $res['picture'] = $data['picture'];
     $res['title_seo'] = $data['title_seo'];
-    $res['rating'] = $data['rating'];
-    
+
+    $query_rating = $mysqli->query("SELECT * FROM cflix_rating WHERE id='$data[rating]' ");
+    $data_rating= $query_rating->fetch_array();
+    $res['rating'] = $data_rating['name'];
+
     array_push($response['data'], $res);
 
 }
