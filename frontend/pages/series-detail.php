@@ -52,6 +52,10 @@ if (isset($_POST['id'])) {
                 $data_sutradara= $query_sutradara->fetch_array();
                 $res['sutradara'] = $data_sutradara['name'];
 
+                $query_kualitas = $mysqli->query("SELECT * FROM cflix_kualitas WHERE id='$data_master[kualitas]' ");
+                $data_kualitas= $query_kualitas->fetch_array();
+                $res['kualitas'] = $data_kualitas['name'];
+
                 $query_rating = $mysqli->query("SELECT * FROM cflix_rating WHERE id='$data_master[rating]' ");
                 $data_rating= $query_rating->fetch_array();
                 $res['rating'] = $data_rating['name'];
