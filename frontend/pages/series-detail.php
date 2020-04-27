@@ -6,8 +6,8 @@ header("Access-Control-Allow-Origin: *");
 
 
 $response = array();
-if (isset($_POST['id'])) {
-    $query = $mysqli->query("SELECT * FROM cflix_film WHERE id = '$_POST[id]' ");
+if (isset($_GET['id'])) {
+    $query = $mysqli->query("SELECT * FROM cflix_film WHERE id = '$_GET[id]' ");
     $cek = $query->num_rows;
 
     if ($cek > 0) {
