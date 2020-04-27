@@ -21,6 +21,10 @@ if (isset($_GET['country'])) {
                 
                 array_push($response, $res);
             }
+        } else {
+            $res['status_code'] = '202';
+            $res['message'] = 'key invalid.';
+            array_push($response, $res);
         }
     } else {
         $res['status_code'] = '304';
