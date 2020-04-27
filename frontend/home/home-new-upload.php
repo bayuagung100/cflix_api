@@ -1,5 +1,6 @@
 <?php
 include "../../config/config.php";
+header('Access-Control-Allow-Headers: Access-Control-Allow-Origin, Content-Type');
 header('Content-type: application/json; charset=UTF-8');
 header("Access-Control-Allow-Origin: *");
 

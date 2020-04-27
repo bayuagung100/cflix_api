@@ -7,10 +7,10 @@ if (isset($_POST['action'])) {
     
     if ($_POST['action']=="add") {
         if (isset($_POST['name'])) {
-            $name = strtoupper($_POST['name']);
+            $name = ucwords($_POST['name']);
             $name_seo = convert_seo($name);
 
-            $query = $mysqli->query("INSERT INTO cflix_kualitas 
+            $query = $mysqli->query("INSERT INTO cflix_type 
                 (
                     name,
                     name_seo
@@ -24,7 +24,7 @@ if (isset($_POST['action'])) {
             if ($query) {
                 $response = array();
                 $res['status_code'] = '200';
-                $res['message'] = 'Success add kualitas.';
+                $res['message'] = 'Success add type.';
                 array_push($response, $res);
                 echo json_encode($response);
             } else {
@@ -43,14 +43,14 @@ if (isset($_POST['action'])) {
         }
     } elseif ($_POST['action']=="edit") {
         if (isset($_POST['id'])) {
-            $cek_query = $query = $mysqli->query("SELECT * FROM cflix_kualitas WHERE id='$_POST[id]' ");
+            $cek_query = $query = $mysqli->query("SELECT * FROM cflix_type WHERE id='$_POST[id]' ");
             $cek = $cek_query->num_rows;
             if ($cek>0) {
                 if (isset($_POST['name'])) {
-                    $name = strtoupper($_POST['name']);
+                    $name = ucwords($_POST['name']);
                     $name_seo = convert_seo($name);
 
-                    $query = $mysqli->query("UPDATE cflix_kualitas SET
+                    $query = $mysqli->query("UPDATE cflix_type SET
                         name = '$name',
                         name_seo = '$name_seo'
 
@@ -60,7 +60,7 @@ if (isset($_POST['action'])) {
                     if ($query) {
                         $response = array();
                         $res['status_code'] = '200';
-                        $res['message'] = 'Success edit kualitas.';
+                        $res['message'] = 'Success edit type.';
                         array_push($response, $res);
                         echo json_encode($response);
                     } else {
@@ -93,11 +93,11 @@ if (isset($_POST['action'])) {
         }
     } elseif ($_POST['action']=="delete") {
         if (isset($_POST['id'])) {
-            $query = $mysqli->query("DELETE FROM cflix_kualitas WHERE id = '$_POST[id]' ");
+            $query = $mysqli->query("DELETE FROM cflix_type WHERE id = '$_POST[id]' ");
             if ($query) {
                 $response = array();
                 $res['status_code'] = '200';
-                $res['message'] = 'Success delete kualitas. ' . var_dump($query);
+                $res['message'] = 'Success delete type. ' . var_dump($query);
                 array_push($response, $res);
                 echo json_encode($response);
             } else {
@@ -115,7 +115,7 @@ if (isset($_POST['action'])) {
             echo json_encode($response);
         }
     } elseif ($_POST['action']=="show") {
-        $query = $mysqli->query("SELECT * FROM cflix_kualitas ");
+        $query = $mysqli->query("SELECT * FROM cflix_type ");
 
         $response = array();
         $response['data'] = array();
@@ -136,7 +136,7 @@ if (isset($_POST['action'])) {
         array_push($response, $res);
         echo json_encode($response);
     }
-    
+
 } else {
     $response = array();
     $res['status_code'] = '404';
