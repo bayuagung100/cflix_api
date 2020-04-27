@@ -97,7 +97,7 @@ if (isset($_POST['action'])) {
             if ($query) {
                 $response = array();
                 $res['status_code'] = '200';
-                $res['message'] = 'Success delete aktor. ' . var_dump($query);
+                $res['message'] = 'Success delete aktor. ';
                 array_push($response, $res);
                 echo json_encode($response);
             } else {
